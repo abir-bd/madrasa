@@ -51,7 +51,6 @@ class AdminProfileController extends Controller
         }
 
         public function passwordview(){
-
         return view('admin.profile.edit-password');
 
 
