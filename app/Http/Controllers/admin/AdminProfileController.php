@@ -10,9 +10,9 @@ use Hash;
 class AdminProfileController extends Controller
 {
     public function view(){
-    $id = Auth::user()->id; 
+    $id = Auth::user()->id;
     $user = User::find($id);
-    
+
     return view('admin.profile.view-profile',compact('user'));
 
    }
@@ -25,15 +25,18 @@ class AdminProfileController extends Controller
    public function update(Request $request){
 
          $data = User::find(Auth::user()->id);
-       
+
         $data->name = $request->name;
         $data->email = $request->email;
         $data->mobile = $request->mobile;
         $data->address= $request->address;
+        $data->education= $request->education;
+        $data->skills= $request->skills;
+        $data->notes= $request->notes;
         // $data->gender = $request->gender;
         // $data->dob= $request->dob;
         // $data->edu = $request->edu;
-        
+
 
         if ($request->file('image')){
           $file = $request->file('image');
@@ -50,9 +53,9 @@ class AdminProfileController extends Controller
         public function passwordview(){
 
         return view('admin.profile.edit-password');
- 
 
-        } 
+
+        }
 
         public function passwordupdate(Request $request){
 

@@ -14,7 +14,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Ionicons -->
  <link rel="stylesheet" href="{{asset('backend')}}/plugins/daterangepicker/daterangepicker.css">
   <!-- Tempusdominus Bootstrap 4 -->
- 
+
   <!-- iCheck -->
   <link rel="stylesheet" href="{{asset('backend')}}/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- JQVMap -->
@@ -38,31 +38,31 @@ scratch. This page gets rid of all links and provides the needed markup only.
    <link rel="stylesheet" href="{{asset('backend')}}/plugins/summernote/summernote-bs4.min.css">
    <link rel="stylesheet" href="{{asset('backend')}}/plugins/select2/css/select2.min.css">
   <link rel="stylesheet" href="{{asset('backend')}}/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
-  <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css"> 
-  
+  <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
+
   <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 
 
-   
+
   <style type="text/css">
     .notifyjs.corner{
-      z-index: 10000 !important; 
+      z-index: 10000 !important;
     }
   </style>
 
 
 
-  
 
 
-   
+
+
 </head>
 <body class="hold-transition sidebar-mini">
 @include('admin.layouts.header')
   <!-- /.navbar -->
 @include('admin.layouts.sidebar')
   <!-- Main Sidebar Container -->
- 
+
 
   <!-- Content Wrapper. Contains page content -->
   @yield('content')
@@ -119,7 +119,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="{{asset('backend')}}/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('backend')}}/dist/js/demo.js"></script>
-    
+
     <script src="{{asset('backend')}}/plugins/summernote/summernote-bs4.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.js"></script>
   <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
@@ -194,7 +194,7 @@ Swal.fire({
   }
 })
 
-    }); 
+    });
   });
 
 </script>
@@ -224,7 +224,7 @@ Swal.fire({
   }
 })
 
-    }); 
+    });
   });
 
 </script>
@@ -254,7 +254,7 @@ Swal.fire({
   }
 })
 
-    }); 
+    });
   });
 
 </script>
@@ -394,7 +394,7 @@ Swal.fire({
 
 
   })
-  
+
   // DropzoneJS Demo Code End
 </script>
 
@@ -422,4 +422,4 @@ $(document).ready(function(){
 
 </script>
 </body>
-</html>scre
+</html>
