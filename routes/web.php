@@ -53,7 +53,7 @@ Route::get('/admission-rules', [App\Http\Controllers\Frontend\FrontendController
 Route::get('/registration', [App\Http\Controllers\Frontend\FrontendController::class, 'registration'])->name('registration');
 Route::get('/curricullam', [App\Http\Controllers\Frontend\FrontendController::class, 'curricullam'])->name('curricullam');
 Route::get('/semister', [App\Http\Controllers\Frontend\FrontendController::class, 'semister'])->name('semister');
- 
+
 // ============Academic===============
 Route::get('/founder', [App\Http\Controllers\Frontend\FrontendController::class, 'founder'])->name('founder');
 Route::get('/principal', [App\Http\Controllers\Frontend\FrontendController::class, 'principal'])->name('principal');
@@ -108,7 +108,7 @@ Route::get('/video-gallery', [App\Http\Controllers\Frontend\FrontendController::
 
 // ///////////////////Admin Section ////////////////
 
-Route::group(['prefix'=>'admin','middleware'=>['admin','auth'],'namespace'=>'admin'],function(){ 
+Route::group(['prefix'=>'admin','middleware'=>['admin','auth'],'namespace'=>'admin'],function(){
     Route::get('dashboard',[App\Http\Controllers\admin\AdminDashboardController::class,'index'])->name('admin.dashboard');
 
     // Profile
@@ -119,14 +119,14 @@ Route::group(['prefix'=>'admin','middleware'=>['admin','auth'],'namespace'=>'adm
     Route::post('password/update',[App\Http\Controllers\admin\AdminProfileController::class,'passwordupdate'])->name('admin.profiles.password.update');
 
       // ===================teacher Section============
-    
+
     Route::get('teacher/view',[App\Http\Controllers\admin\TeacherController::class,'view'])->name('admin.teacher.view');
     Route::post('teacher-store',[App\Http\Controllers\admin\TeacherController::class,'store'])->name('admin.teacher.store');
     Route::post('teacher-update/{id}',[App\Http\Controllers\admin\TeacherController::class,'update'])->name('admin.teacher.update');
     Route::get('teacher-active/{id}',[App\Http\Controllers\admin\TeacherController::class,'active'])->name('admin.teacher.active');
     Route::get('teacherr-inactive/{id}',[App\Http\Controllers\admin\TeacherController::class,'inactive'])->name('admin.teacher.inactive');
     Route::get('teacher-delete/{id}',[App\Http\Controllers\admin\TeacherController::class,'delete'])->name('admin.teacher.delete');
-    
+
 
 // ===================Student Section===============
      Route::get('student/view',[App\Http\Controllers\admin\StudentController::class,'view'])->name('admin.student.view');
@@ -226,11 +226,15 @@ Route::get('/video-gallery/inactive/{id}', [App\Http\Controllers\admin\VideoCont
 Route::get('/video-gallery/delete/{id}', [App\Http\Controllers\admin\VideoController::class, 'delete'])->name('admin.video.delete');
 
  // ===================teacher Section============
-    
+
     Route::get('contact/view',[App\Http\Controllers\admin\ContactController::class,'view'])->name('admin.contact.view');
     Route::post('contact-update/{id}',[App\Http\Controllers\admin\ContactController::class,'update'])->name('admin.contact.update');
 
-    // ===================Course===============
+//===================Contact===============
+    Route::post('contact/store',[App\Http\Controllers\admin\ContactController::class,'store'])->name('admin.contact.store');
+
+
+// ===================Course===============
         Route::get('slider/view',[App\Http\Controllers\admin\SliderController::class,'view'])->name('admin.slider.view');
       Route::post('slider/store',[App\Http\Controllers\admin\SliderController::class,'store'])->name('admin.slider.store');
 Route::post('slider/update/{id}',[App\Http\Controllers\admin\SliderController::class,'update'])->name('admin.slider.update');
@@ -238,19 +242,22 @@ Route::get('/slider/active/{id}', [App\Http\Controllers\admin\SliderController::
 Route::get('/slider/inactive/{id}', [App\Http\Controllers\admin\SliderController::class, 'inactive'])->name('admin.slider.inactive');
 Route::get('/slider/delete/{id}', [App\Http\Controllers\admin\SliderController::class, 'delete'])->name('admin.slider.delete');
 
-   // ===================Setting===============
+
+
+
+// ===================Setting===============
         Route::get('setting/view',[App\Http\Controllers\admin\SettingController::class,'view'])->name('admin.setting.view');
       Route::post('setting/store',[App\Http\Controllers\admin\SettingController::class,'store'])->name('admin.setting.store');
 Route::post('setting/update/{id}',[App\Http\Controllers\admin\SettingController::class,'update'])->name('admin.setting.update');
 Route::get('/setting/active/{id}', [App\Http\Controllers\admin\SettingController::class, 'active'])->name('admin.setting.active');
 Route::get('/setting/inactive/{id}', [App\Http\Controllers\admin\SettingController::class, 'inactive'])->name('admin.setting.inactive');
 Route::get('/setting/delete/{id}', [App\Http\Controllers\admin\SettingController::class, 'delete'])->name('admin.setting.delete');
-    
+
 
 });
      // ///////////////////Teacher Section ////////////////
 
-Route::group(['prefix'=>'teacher','middleware'=>['teacher','auth'],'namespace'=>'teacher'],function(){ 
+Route::group(['prefix'=>'teacher','middleware'=>['teacher','auth'],'namespace'=>'teacher'],function(){
     Route::get('dashboard',[App\Http\Controllers\teacher\TeacherDashboardController::class,'index'])->name('teacher.dashboard');
     // =====================Profile Section============
         Route::get('/profile-view',[App\Http\Controllers\teacher\TeacherProfileController::class,'view'])->name('teacher.profiles.view');
@@ -260,12 +267,12 @@ Route::group(['prefix'=>'teacher','middleware'=>['teacher','auth'],'namespace'=>
     // ===================Student Section===============
      Route::get('/student-view',[App\Http\Controllers\teacher\StudentController::class,'view'])->name('teacher.student.view');
 
-   
+
 });
 
      // ///////////////////Teacher Section ////////////////
 
-Route::group(['prefix'=>'student','middleware'=>['student','auth'],'namespace'=>'student'],function(){ 
+Route::group(['prefix'=>'student','middleware'=>['student','auth'],'namespace'=>'student'],function(){
     Route::get('dashboard',[App\Http\Controllers\Student\StudentDashboardController::class,'index'])->name('student.dashboard');
     // =====================Profile Section============
         Route::get('/profile-view',[App\Http\Controllers\student\StudentProfileController::class,'view'])->name('student.profiles.view');
@@ -279,7 +286,7 @@ Route::group(['prefix'=>'student','middleware'=>['student','auth'],'namespace'=>
 
 // ///////////////////User Section ////////////////
 
-Route::group(['prefix'=>'user','middleware'=>['user','auth'],'namespace'=>'user'],function(){ 
+Route::group(['prefix'=>'user','middleware'=>['user','auth'],'namespace'=>'user'],function(){
     Route::get('user/dashboard',[App\Http\Controllers\User\UserDashboardController::class,'index'])->name('user.dashboard');
       Route::get('profile',[App\Http\Controllers\User\UserDashboardController::class,'profile'])->name('user.profile');
     Route::post('update/profile',[App\Http\Controllers\User\UserDashboardController::class,'profileupdate'])->name('user.profile.update');
