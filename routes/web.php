@@ -129,13 +129,18 @@ Route::group(['prefix'=>'admin','middleware'=>['admin','auth'],'namespace'=>'adm
 
 
 // ===================Student Section===============
-     Route::get('student/view',[App\Http\Controllers\admin\StudentController::class,'view'])->name('admin.student.view');
+    Route::get('student/view',[App\Http\Controllers\admin\StudentController::class,'view'])->name('admin.student.view');
     Route::post('student-store',[App\Http\Controllers\admin\StudentController::class,'store'])->name('admin.student.store');
     Route::post('student-update/{id}',[App\Http\Controllers\admin\StudentController::class,'update'])->name('admin.student.update');
     Route::get('student-active/{id}',[App\Http\Controllers\admin\StudentController::class,'active'])->name('admin.student.active');
     Route::get('studentr-inactive/{id}',[App\Http\Controllers\admin\StudentController::class,'inactive'])->name('admin.student.inactive');
     Route::get('student-delete/{id}',[App\Http\Controllers\admin\StudentController::class,'delete'])->name('admin.student.delete');
     Route::get('user/allbook/view',[App\Http\Controllers\admin\StudentController::class,'userwisebook'])->name('admin.student.allbook-view');
+
+
+    // ==============Result Section==============
+    Route::get('result/view',[App\Http\Controllers\admin\ResultController::class,'view'])->name('admin.result.view');
+    Route::post('result/store',[App\Http\Controllers\admin\ResultController::class,'store'])->name('admin.result.store');
 
 
     // ==============Category Section==============

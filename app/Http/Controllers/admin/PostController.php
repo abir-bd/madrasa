@@ -29,11 +29,11 @@ class PostController extends Controller
 
         // return response()->json(['posts'=>$posts],200);
              return new PostCollection(Post::orderBy('id','DESC')->paginate(10));
-       
+
     }
-    
-   
-    
+
+
+
      public function store(Request $request){
         $this->validate($request,[
             'title'=>'required|unique:posts,title',
@@ -74,8 +74,8 @@ class PostController extends Controller
          Toastr::success('Post Added Successfully','success');
         return back();
     }
-        
-      
+
+
 
         public function update(Request $request,$id){
             $data = Post::find($id);
@@ -101,11 +101,11 @@ class PostController extends Controller
           $data['post_file'] = $filename;
         }
 
-        $data->save(); 
+        $data->save();
 
-       
 
-        
+
+
         Toastr::success('Post Updated Successfully','success');
         return back();
 
@@ -125,10 +125,10 @@ class PostController extends Controller
             $category->save();
           Toastr::success('Post Active Successfully','success');
         return back();
-        } 
+        }
 
           public function delete(Request $request){
-            $data = Post::find($request->id); 
+            $data = Post::find($request->id);
                if (file_exists('upload/postfile/' . $user->post_file) AND !
             empty($user->post_file)){
                unlink('upload/postfile/' . $user->post_file);
@@ -138,5 +138,5 @@ class PostController extends Controller
         return back();
 
 
-     }  
+     }
 }

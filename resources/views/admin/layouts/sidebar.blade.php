@@ -84,6 +84,20 @@
               </p>
             </a>
           </li>
+
+
+          <li class="nav-item">
+            <a href="{{ route('admin.result.view') }}" class="nav-link {{ request()->is('admin/result/view') ? 'active' : '' }}">
+              <i class="fa fa-graduation-cap mr-2"></i>
+              <p>
+                Result Manage
+
+              </p>
+            </a>
+          </li>
+
+
+
             <li class="nav-item">
             <a href="{{ route('admin.category.view') }}" class="nav-link {{ request()->is('admin/category/view') ? 'active' : '' }}">
               <i class="fa fa-certificate mr-2"></i>
@@ -106,7 +120,7 @@
             <a href="{{ route('admin.post.view') }}" class="nav-link {{ request()->is('admin/post/view') ? 'active' : '' }}">
               <i class="fa fa-paper-plane mr-2"></i>
               <p>
-                Post Manage
+                Notice Manage
 
               </p>
             </a>
